@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     @IBAction func buttons(_ sender: UIButton) {
         
-        if result.text != "" && sender.tag != 10 && sender.tag != 16{
+        if result.text != "" && sender.tag != 10 && sender.tag != 15{
             firstNum = Double (result.text!)!
             
             if sender.tag == 11 {  // Деление
@@ -52,13 +52,13 @@ class ViewController: UIViewController {
             else if sender.tag == 14 {  // Добавление
                 result.text = "+"
             }
-            else if sender.tag == 16 {  // Проценты
-                result.text = "%"
-            }
+//            else if sender.tag == 16 {  // Проценты
+//                result.text = "%"
+//            }
             operation = sender.tag
             mathSign = true
-        }
-        else if  sender.tag == 15 {     // Посчитать все
+        } else if  sender.tag == 15 {     // Посчитать все
+            
             if operation == 11 {
                 result.text = String (firstNum / numberFromScreen)
             }
@@ -71,16 +71,15 @@ class ViewController: UIViewController {
             else if operation == 14 {
                 result.text = String (firstNum + numberFromScreen)
             }
-            else if operation == 16 {
-                result.text = String (firstNum.truncatingRemainder(dividingBy: numberFromScreen)) // !!! Проценты
-            }
-            else if operation == 10 {
+//            else if operation == 16 {
+//                result.text = String (firstNum.truncatingRemainder(dividingBy: numberFromScreen)) // !!! Проценты
+//            }
+        } else if operation == 10 {
                 result.text = ""
                 firstNum = 0
                 numberFromScreen = 0
                 operation = 0
             }
-        }
 
     }
     
